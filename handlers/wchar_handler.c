@@ -6,7 +6,7 @@
 /*   By: ddenkin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/07 19:53:37 by ddenkin           #+#    #+#             */
-/*   Updated: 2017/12/11 17:48:21 by ddenkin          ###   ########.fr       */
+/*   Updated: 2017/12/12 10:52:32 by ddenkin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 int			wchar_handler(va_list *va, t_form *form)
 {
-	wint_t ch;
+	int		ch;
 
-	ch = va_arg(*va, wint_t);
+	ch = va_arg(*va, int);
 	(void)form;
 	return (ft_putchar(ch));
 }
