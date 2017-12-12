@@ -6,7 +6,7 @@
 /*   By: ddenkin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/01 17:08:36 by ddenkin           #+#    #+#             */
-/*   Updated: 2017/12/12 11:41:21 by ddenkin          ###   ########.fr       */
+/*   Updated: 2017/12/12 12:03:39 by ddenkin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,13 @@ const char	*main_handler(const char *format, va_list *argp, int *res)
 	form = (t_form *)malloc(sizeof(t_form));
 	form->flg = parse_flags(&(format));
 	form->min_w = parse_w(argp, &(format));
-	form->prec = parse_prec(&(format));
+	if (form->min_w < 0)
+	{
+		form->flg->minus = 1;
+		form->min_w *= -1;
+	}
+	form->prec = parse_prec(argp, &(format));
+	form->prec = (form->prec < 0) ? -1 : form->prec;
 	form->lmod = parse_lmod(&(format));
 	form->res = *res;
 	form->conv = parse_conv(&(format), g_opptab);

@@ -6,7 +6,7 @@
 /*   By: ddenkin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/04 18:31:50 by ddenkin           #+#    #+#             */
-/*   Updated: 2017/12/12 11:41:04 by ddenkin          ###   ########.fr       */
+/*   Updated: 2017/12/12 12:01:17 by ddenkin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,14 +62,22 @@ int			parse_w(va_list *va, const char **format)
 	int	minw;
 
 	minw = 0;
+	if (**format == '*')
+	{
+		minw = va_arg(*va, int);
+		(*format)++;
+	}
 	if (ft_isdigit(**format))
+	{
+		minw = 0;
 		while (ft_isdigit(**format))
 		{
 			minw *= 10;
 			minw += **format - 48;
 			(*format)++;
 		}
-	else if (**format == '*')
+	}
+	if (**format == '*')
 	{
 		minw = va_arg(*va, int);
 		(*format)++;
@@ -77,7 +85,7 @@ int			parse_w(va_list *va, const char **format)
 	return (minw);
 }
 
-int			parse_prec(const char **format)
+int			parse_prec(va_list *va, const char **format)
 {
 	int		prec;
 
@@ -86,10 +94,16 @@ int			parse_prec(const char **format)
 	{
 		prec = 0;
 		(*format)++;
-		while (ft_isdigit(**format))
+		if (ft_isdigit(**format))
+			while (ft_isdigit(**format))
+			{
+				prec *= 10;
+				prec += **format - 48;
+				(*format)++;
+			}
+		else if (**format == '*')
 		{
-			prec *= 10;
-			prec += **format - 48;
+			prec = va_arg(*va, int);
 			(*format)++;
 		}
 	}
