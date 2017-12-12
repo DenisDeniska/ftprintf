@@ -6,7 +6,7 @@
 /*   By: ddenkin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/06 16:27:14 by ddenkin           #+#    #+#             */
-/*   Updated: 2017/12/12 11:21:16 by ddenkin          ###   ########.fr       */
+/*   Updated: 2017/12/12 11:21:58 by ddenkin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	apply_plusspace(char **res, t_form *form, char symb)
 	char	*tmp;
 	char	*tmp2;
 
-	if (((*res)[0] == '0' || (*res)[0] == ' ') && ft_isdigit((*res)[1]))
+	if (((*res)[0] == '0') && ft_isdigit((*res)[1]))
 	{
 		if (ft_strlen(*res) > (size_t)form->prec && form->prec != -1)
 			(*res)[0] = symb;
