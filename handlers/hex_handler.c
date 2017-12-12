@@ -6,7 +6,7 @@
 /*   By: ddenkin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/04 21:21:34 by ddenkin           #+#    #+#             */
-/*   Updated: 2017/12/11 21:56:34 by ddenkin          ###   ########.fr       */
+/*   Updated: 2017/12/12 14:54:01 by ddenkin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,8 @@ static void	apply_sharp(char **res, t_form *form)
 	char	*tmp2;
 
 	tmp = *res;
-	if ((*res)[0] == '0' && (*res)[1] == '0' && ft_strlen(*res) >= (size_t)form->prec + 2)
+	if ((*res)[0] == '0' && (*res)[1] == '0' &&\
+			ft_strlen(*res) >= (size_t)form->prec + 2)
 		(*res)[1] = 'x';
 	else if ((*res)[0] == '0' && (*res)[1] != '0')
 	{

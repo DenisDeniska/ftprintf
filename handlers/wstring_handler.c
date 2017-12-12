@@ -6,7 +6,7 @@
 /*   By: ddenkin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/07 19:54:10 by ddenkin           #+#    #+#             */
-/*   Updated: 2017/12/11 21:07:51 by ddenkin          ###   ########.fr       */
+/*   Updated: 2017/12/12 14:45:06 by ddenkin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,13 +63,9 @@ int			wstring_handler(va_list *va, t_form *form)
 	res = (char *)malloc(sizeof(char) * (l + 1));
 	ft_memset(res, 0, l + 1);
 	while (s[i] && l - j > 0)
-	{
 		j += ft_unictoa((res + j), s[i++], l - j);
-	}
-	if (form->flg->minus == 0 && form->flg->zero == 1)
-		apply_zero(&res, form);
-	else
-		apply_blanksw(&res, form, form->flg->minus);
+	(form->flg->minus == 0 && form->flg->zero == 1) ? apply_zero(&res, form) :\
+					apply_blanksw(&res, form, form->flg->minus);
 	i = ft_strlen(res);
 	write(1, res, i);
 	free(res);

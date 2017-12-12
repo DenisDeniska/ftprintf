@@ -6,7 +6,7 @@
 /*   By: ddenkin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/06 16:30:15 by ddenkin           #+#    #+#             */
-/*   Updated: 2017/12/11 17:55:36 by ddenkin          ###   ########.fr       */
+/*   Updated: 2017/12/12 14:51:08 by ddenkin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,8 @@ void		apply_blanksw(char **res, t_form *form, int minus)
 	char	*temp;
 	char	*ttmp;
 
-	len = (form->prec != -1) ? ft_min(form->prec, ft_strlen(*res)) : ft_strlen(*res);
+	len = (form->prec != -1) ? ft_min(form->prec, ft_strlen(*res)) \
+			: ft_strlen(*res);
 	if (len < form->min_w)
 	{
 		temp = (char *)malloc(sizeof(char) * (form->min_w - len + 1));

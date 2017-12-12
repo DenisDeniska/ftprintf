@@ -6,7 +6,7 @@
 /*   By: ddenkin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/04 17:54:28 by ddenkin           #+#    #+#             */
-/*   Updated: 2017/12/12 11:53:14 by ddenkin          ###   ########.fr       */
+/*   Updated: 2017/12/12 14:49:55 by ddenkin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ typedef struct	s_flags
 typedef struct	s_form
 {
 	t_flags		*flg;
+	int			num;
 	int			min_w;
 	int			prec;
 	char		*lmod;
@@ -49,6 +50,7 @@ int				parse_w(va_list *va, const char **format);
 int				parse_prec(va_list *va, const char **format);
 char			*parse_lmod(const char **format);
 char			parse_conv(const char **format, t_opp *g_opptab);
+void			init_flags(t_flags *res);
 
 char			*dec_handler(t_form *form, intmax_t *num);
 char			*unum_handler(t_form *form, uintmax_t *num);

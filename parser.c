@@ -6,7 +6,7 @@
 /*   By: ddenkin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/04 18:31:50 by ddenkin           #+#    #+#             */
-/*   Updated: 2017/12/12 12:01:17 by ddenkin          ###   ########.fr       */
+/*   Updated: 2017/12/12 14:49:35 by ddenkin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,16 +33,12 @@ t_flags		*parse_flags(const char **format)
 
 	if (!(res = (t_flags *)malloc(sizeof(t_flags))))
 		return (NULL);
-	res->sharp = 0;
-	res->zero = 0;
-	res->plus = 0;
-	res->minus = 0;
-	res->space = 0;
+	init_flags(res);
 	while (**format)
 	{
 		if (**format == '#')
 			res->sharp = 1;
-		else if	(**format == ' ')
+		else if (**format == ' ')
 			res->space = 1;
 		else if (**format == '0')
 			res->zero = 1;
