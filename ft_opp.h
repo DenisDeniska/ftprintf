@@ -1,0 +1,36 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_opp.h                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ddenkin <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/12/04 21:34:07 by ddenkin           #+#    #+#             */
+/*   Updated: 2017/12/09 18:35:14 by ddenkin          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#ifndef FT_OPP_H
+# define FT_OPP_H
+
+t_opp g_opptab[] =
+{
+	{"s", &string_handler},
+	{"S", &wstring_handler},
+	{"p", &pointer_handler},
+	{"d", &int_handler},
+	{"D", &int_handler},
+	{"i", &int_handler},
+	{"n", &n_handler},
+	{"o", &octal_handler},
+	{"O", &octal_handler},
+	{"u", &unsigned_handler},
+	{"U", &unsigned_handler},
+	{"x", &hex_handler},
+	{"X", &hex_handler},
+	{"c", &char_handler},
+	{"C", &wchar_handler},
+	{"%", &perc_handler},
+	{NULL, NULL}
+};
+#endif
