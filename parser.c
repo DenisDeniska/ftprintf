@@ -6,7 +6,7 @@
 /*   By: ddenkin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/04 18:31:50 by ddenkin           #+#    #+#             */
-/*   Updated: 2017/12/11 18:54:15 by ddenkin          ###   ########.fr       */
+/*   Updated: 2017/12/12 11:41:04 by ddenkin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,15 +57,21 @@ t_flags		*parse_flags(const char **format)
 	return (res);
 }
 
-int			parse_w(const char **format)
+int			parse_w(va_list *va, const char **format)
 {
 	int	minw;
 
 	minw = 0;
-	while (ft_isdigit(**format))
+	if (ft_isdigit(**format))
+		while (ft_isdigit(**format))
+		{
+			minw *= 10;
+			minw += **format - 48;
+			(*format)++;
+		}
+	else if (**format == '*')
 	{
-		minw *= 10;
-		minw += **format - 48;
+		minw = va_arg(*va, int);
 		(*format)++;
 	}
 	return (minw);
