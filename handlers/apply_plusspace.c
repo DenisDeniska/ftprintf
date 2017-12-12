@@ -6,7 +6,7 @@
 /*   By: ddenkin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/06 16:27:14 by ddenkin           #+#    #+#             */
-/*   Updated: 2017/12/12 11:16:58 by ddenkin          ###   ########.fr       */
+/*   Updated: 2017/12/12 11:20:06 by ddenkin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,13 @@ void	apply_plusspace(char **res, t_form *form, char symb)
 	char	*tmp;
 	char	*tmp2;
 
-	if (((*res)[0] == '0' || (*res)[0] == ' ') && ft_isdigit((*res)[1]) && ft_strlen(*res) > (size_t)form->prec && form->prec != -1)
-		(*res)[0] = symb;
-	else if (((*res)[0] == '0' || (*res)[0] == ' ') && ft_isdigit((*res)[1]) && ft_strlen(*res) >= (size_t)form->min_w && form->prec == -1 && form->min_w != 0)
-		(*res)[0] = symb;
+	if (((*res)[0] == '0' || (*res)[0] == ' ') && ft_isidigit((*res)[1]))
+	{
+		if (ft_strlen(*res) > (size_t)form->prec && form->prec != -1)
+			(*res)[0] = symb;
+		if (ft_strlen(*res) >= (size_t)form->min_w && form->prec == -1 && form->min_w != 0)
+			(*res)[0] = symb;
+	}
 	else if ((*res)[0] != '-')
 	{
 		tmp = *res;
