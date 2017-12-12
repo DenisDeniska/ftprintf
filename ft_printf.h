@@ -6,7 +6,7 @@
 /*   By: ddenkin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/04 17:54:28 by ddenkin           #+#    #+#             */
-/*   Updated: 2017/12/11 18:47:54 by ddenkin          ###   ########.fr       */
+/*   Updated: 2017/12/12 11:41:40 by ddenkin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ typedef struct	s_opp
 
 int				ft_printf(const char *format, ...);
 t_flags			*parse_flags(const char **format);
-int				parse_w(const char **format);
+int				parse_w(va_list *va, const char **format);
 int				parse_prec(const char **format);
 char			*parse_lmod(const char **format);
 char			parse_conv(const char **format, t_opp *g_opptab);
