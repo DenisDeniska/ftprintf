@@ -6,7 +6,7 @@
 /*   By: ddenkin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/04 17:54:28 by ddenkin           #+#    #+#             */
-/*   Updated: 2017/12/15 17:47:20 by ddenkin          ###   ########.fr       */
+/*   Updated: 2017/12/15 21:12:21 by ddenkin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,7 @@ int				wchar_handler(va_list *va, t_form *form);
 int				perc_handler(va_list *va, t_form *form);
 int				e_handler(va_list *va, t_form *form);
 int				f_handler(va_list *va, t_form *form);
+int				g_handler(va_list *va, t_form *form);
 int				n_handler(va_list *va, t_form *form);
 int				binary_handler(va_list *va, t_form *form);
 int				nonprint_handler(va_list *va, t_form *form);

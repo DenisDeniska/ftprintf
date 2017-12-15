@@ -32,6 +32,7 @@ SRC = ft_printf.c\
 	  $(HANDLE)/nonprint_handler.c\
 	  $(HANDLE)/e_handler.c\
 	  $(HANDLE)/f_handler.c\
+	  $(HANDLE)/g_handler.c\
 	  $(HANDLE)/date_handler.c\
 	  $(HANDLE)/time_handler.c\
 	  $(HANDLE)/failconv_handler.c\
@@ -70,6 +71,8 @@ LIBSRC =$(LIB)/ft_isdigit.c \
 		$(LIB)/ft_itoa_base.c \
 		$(LIB)/ft_pow.c \
 		$(LIB)/ft_abs.c \
+		$(LIB)/ft_countexp.c \
+		$(LIB)/ft_countmant.c \
 
 OBJ = $(SRC:.c=.o)
 
