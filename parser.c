@@ -6,7 +6,7 @@
 /*   By: ddenkin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/04 18:31:50 by ddenkin           #+#    #+#             */
-/*   Updated: 2017/12/12 18:38:32 by ddenkin          ###   ########.fr       */
+/*   Updated: 2017/12/15 22:26:03 by ddenkin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,7 +114,7 @@ char		*parse_lmod(const char **format)
 	res = (char *)malloc(sizeof(char) * 3);
 	ft_memset(res, 0, 3);
 	if (**format == 'h' || **format == 'l' || **format == 'j'\
-			|| **format == 'z')
+			|| **format == 'z' || **format == 'L')
 		res[0] = **format;
 	else
 	{
