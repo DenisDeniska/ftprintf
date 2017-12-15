@@ -6,7 +6,7 @@
 /*   By: ddenkin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/15 21:12:25 by ddenkin           #+#    #+#             */
-/*   Updated: 2017/12/15 22:16:47 by ddenkin          ###   ########.fr       */
+/*   Updated: 2017/12/15 22:21:58 by ddenkin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,7 @@ int			g_handler(va_list *va, t_form *form)
 	else if (form->prec == -1)
 		form->prec = 6;
 	d = va_arg(*va, double);
+	mant = ft_countmant(d);
 	res = choose_side(&size, form, &mant, d);
 	trimzeros(res, form->prec - mant);
 	if (form->flg->minus == 1)
