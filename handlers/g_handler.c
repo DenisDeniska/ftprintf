@@ -6,7 +6,7 @@
 /*   By: ddenkin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/15 21:12:25 by ddenkin           #+#    #+#             */
-/*   Updated: 2017/12/15 22:08:05 by ddenkin          ###   ########.fr       */
+/*   Updated: 2017/12/15 22:16:47 by ddenkin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,11 +27,36 @@ void		trimzeros(char *str, int exp)
 		str[end] = 0;
 }
 
+char		*choose_side(int *size, t_form *form, int *mant, double d)
+{
+	int		prec;
+	char	*res;
+	int		exp;
+
+	exp = ft_countexp(d);
+	if (exp < -4 || exp > form->prec)
+	{
+		*size = 0;
+		*mant = 1;
+		prec = form->prec - *mant;
+		if (prec < 0)
+			prec = 0;
+		res = ft_detoa(d, prec);
+	}
+	else
+	{
+		*size = 1;
+		prec = form->prec - *mant;
+		if (prec < 0)
+			prec = 0;
+		res = ft_dtoa(d, prec);
+	}
+	return (res);
+}
+
 int			g_handler(va_list *va, t_form *form)
 {
-	int		exp;
 	int		mant;
-	int		prec;
 	int		size;
 	double	d;
 	char	*res;
@@ -41,25 +66,7 @@ int			g_handler(va_list *va, t_form *form)
 	else if (form->prec == -1)
 		form->prec = 6;
 	d = va_arg(*va, double);
-	exp = ft_countexp(d);
-	mant = ft_countmant(d);
-	if (exp < -4 || exp > form->prec)
-	{
-		size = 0;
-		mant = 1;
-		prec = form->prec - mant;
-		if (prec < 0)
-			prec = 0;
-		res = ft_detoa(d, prec);
-	}
-	else
-	{
-		size = 1;
-		prec = form->prec - mant;
-		if (prec < 0)
-			prec = 0;
-		res = ft_dtoa(d, prec);
-	}
+	res = choose_side(&size, form, &mant, d);
 	trimzeros(res, form->prec - mant);
 	if (form->flg->minus == 1)
 		apply_blanks(&res, form, 1);
