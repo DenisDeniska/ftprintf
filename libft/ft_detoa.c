@@ -6,7 +6,7 @@
 /*   By: ddenkin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/15 16:21:00 by ddenkin           #+#    #+#             */
-/*   Updated: 2017/12/15 18:51:21 by ddenkin          ###   ########.fr       */
+/*   Updated: 2017/12/15 18:52:37 by ddenkin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,8 +63,8 @@ static char		*addexp(char *s, int isize)
 	char	*tmp2;
 	char	*tmp3;
 
-	tmp1 = (isize > 0) ? ft_strdup("e+") : ft_strdup("e-");
-	tmp2 = (isize > 0) ? ft_itoa(isize) : ft_itoa(-isize);
+	tmp1 = (isize >= 0) ? ft_strdup("e+") : ft_strdup("e-");
+	tmp2 = (isize >= 0) ? ft_itoa(isize) : ft_itoa(-isize);
 	if (isize >= -9 && isize <= 9)
 	{
 		res = ft_strdup("0");
