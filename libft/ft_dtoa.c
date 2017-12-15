@@ -6,13 +6,13 @@
 /*   By: ddenkin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/14 16:24:22 by ddenkin           #+#    #+#             */
-/*   Updated: 2017/12/15 17:54:11 by ddenkin          ###   ########.fr       */
+/*   Updated: 2017/12/15 18:59:48 by ddenkin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int		i_size(double n)
+static int			i_size(double n)
 {
 	int			i;
 	double		temp;
@@ -30,7 +30,7 @@ static int		i_size(double n)
 	return (i + 1);
 }
 
-static char		*dmtoa(double num, int isize)
+static char			*dmtoa(double num, int isize)
 {
 	char	*res;
 	int		i;
@@ -57,7 +57,7 @@ static char		*dmtoa(double num, int isize)
 	return (res);
 }
 
-static char		*detoa(double num, int precision)
+static char			*detoa(double num, int precision)
 {
 	char	*res;
 	int		i;
@@ -103,22 +103,21 @@ static double		get_mant(double num, int isize)
 	return (res);
 }
 
-char		*ft_dtoa(double num, int precision)
+char				*ft_dtoa(double num, int precision)
 {
 	int		isize;
 	double	mant;
-	double	exp;
 	char	*res1;
 	char	*res2;
 	char	*res;
 
 	isize = i_size(num);
 	mant = get_mant(num, isize);
-	exp = (num < 0) ? num - mant : mant - num;
-	if (precision == 0 && ft_abs((int)(exp * 10)) >= 5)
+	mant = (num < 0) ? num - mant : mant - num;
+	if (precision == 0 && ft_abs((int)(mant * 10)) >= 5)
 		num++;
 	res1 = dmtoa(num, isize);
-	res2 = detoa(exp, precision);
+	res2 = detoa(mant, precision);
 	res = ft_strjoin(res1, res2);
 	ft_strdel2(&res1, &res2);
 	return (res);
