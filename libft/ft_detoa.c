@@ -6,7 +6,7 @@
 /*   By: ddenkin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/15 16:21:00 by ddenkin           #+#    #+#             */
-/*   Updated: 2017/12/15 18:38:17 by ddenkin          ###   ########.fr       */
+/*   Updated: 2017/12/15 18:39:36 by ddenkin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,5 +97,5 @@ char			*ft_detoa(double num, int precision)
 	res = addexp(res, isize);
 	ft_strdel(&res1);*/
 //	return (res);
-	return (NULL);
+	return (ft_strdup(""));
 }
