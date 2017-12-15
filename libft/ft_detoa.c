@@ -6,7 +6,7 @@
 /*   By: ddenkin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/15 16:21:00 by ddenkin           #+#    #+#             */
-/*   Updated: 2017/12/15 18:40:11 by ddenkin          ###   ########.fr       */
+/*   Updated: 2017/12/15 18:41:27 by ddenkin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,12 @@ static int		transform(double *num)
 			*num /= 10;
 			exp++;
 		}
-	else
-		while (*num < 1 && *num > -1)
-		{
-			*num *= 10;
-			exp--;
-		}
+//	else
+//		while (*num < 1 && *num > -1)
+//		{
+//			*num *= 10;
+//			exp--;
+//		}
 	return (exp);
 }
 
@@ -87,15 +87,14 @@ char			*ft_detoa(double num, int precision)
 	char	*res2;
 	char	*res;
 
-//	isize = transform(&num);
-/*	res1 = ft_itoa((int)num);
+	isize = transform(&num);
+	res1 = ft_itoa((int)num);
 	exp = num - (int)num;
 	res2 = dexptoa(exp, precision);
 	res = ft_strjoin(res1, res2);
 	ft_strdel2(&res1, &res2);
 	res1 = res;
 	res = addexp(res, isize);
-	ft_strdel(&res1);*/
-//	return (res);
-	return (ft_strdup(""));
+	ft_strdel(&res1);
+	return (res);
 }
