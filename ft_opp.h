@@ -6,7 +6,7 @@
 /*   By: ddenkin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/04 21:34:07 by ddenkin           #+#    #+#             */
-/*   Updated: 2017/12/15 17:46:43 by ddenkin          ###   ########.fr       */
+/*   Updated: 2017/12/15 18:28:57 by ddenkin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,8 @@ t_opp g_opptab[] =
 	{"%", &perc_handler},
 	{"e", &e_handler},
 	{"E", &e_handler},
-	{"f", &f_handler},
-	{"F", &f_handler},
+//	{"f", &f_handler},
+//	{"F", &f_handler},
 	{"b", &binary_handler},
 	{"r", &nonprint_handler},
 	{"k", &date_handler},
