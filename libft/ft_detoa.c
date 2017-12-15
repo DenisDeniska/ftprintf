@@ -6,7 +6,7 @@
 /*   By: ddenkin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/15 16:21:00 by ddenkin           #+#    #+#             */
-/*   Updated: 2017/12/15 18:46:22 by ddenkin          ###   ########.fr       */
+/*   Updated: 2017/12/15 18:47:47 by ddenkin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,13 @@ static int		transform(double *num, int precision)
 
 	exp = 0;
 	if (*num > 1 || *num < -1)
-		while ((*num >= 10 || *num <= -10) && exp < precision)
+		while ((*num >= 10 || *num <= -10) && exp < 10)
 		{
 			*num /= 10;
 			exp++;
 		}
 	else
-		while (*num <= 1 && *num >= -1 && -exp < precision)
+		while (*num <= 1 && *num >= -1 && exp > -10)
 		{
 			*num *= 10;
 			exp--;
