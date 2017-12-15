@@ -6,7 +6,7 @@
 /*   By: ddenkin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/15 16:21:00 by ddenkin           #+#    #+#             */
-/*   Updated: 2017/12/15 17:03:57 by ddenkin          ###   ########.fr       */
+/*   Updated: 2017/12/15 18:38:17 by ddenkin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,13 +88,14 @@ char			*ft_detoa(double num, int precision)
 	char	*res;
 
 	isize = transform(&num);
-	res1 = ft_itoa((int)num);
+/*	res1 = ft_itoa((int)num);
 	exp = num - (int)num;
 	res2 = dexptoa(exp, precision);
 	res = ft_strjoin(res1, res2);
 	ft_strdel2(&res1, &res2);
 	res1 = res;
 	res = addexp(res, isize);
-	ft_strdel(&res1);
-	return (res);
+	ft_strdel(&res1);*/
+//	return (res);
+	return (NULL);
 }
