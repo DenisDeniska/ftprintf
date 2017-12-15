@@ -6,7 +6,7 @@
 /*   By: ddenkin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/15 21:12:25 by ddenkin           #+#    #+#             */
-/*   Updated: 2017/12/15 22:06:51 by ddenkin          ###   ########.fr       */
+/*   Updated: 2017/12/15 22:08:05 by ddenkin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ void		trimzeros(char *str, int exp)
 		end--;
 	while (exp-- >= 0 && str[end] == '0')
 		str[end--] = 0;
+	if (str[end] == '.')
+		str[end] = 0;
 }
 
 int			g_handler(va_list *va, t_form *form)
