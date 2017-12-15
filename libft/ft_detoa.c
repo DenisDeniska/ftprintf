@@ -6,7 +6,7 @@
 /*   By: ddenkin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/15 16:21:00 by ddenkin           #+#    #+#             */
-/*   Updated: 2017/12/15 18:41:27 by ddenkin          ###   ########.fr       */
+/*   Updated: 2017/12/15 18:44:18 by ddenkin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,12 @@ static int		transform(double *num)
 			*num /= 10;
 			exp++;
 		}
-//	else
-//		while (*num < 1 && *num > -1)
-//		{
-//			*num *= 10;
-//			exp--;
-//		}
+	else
+		while (*num <= 1 && *num >= -1)
+		{
+			*num *= 10;
+			exp--;
+		}
 	return (exp);
 }
 
