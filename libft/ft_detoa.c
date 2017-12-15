@@ -6,13 +6,13 @@
 /*   By: ddenkin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/15 16:21:00 by ddenkin           #+#    #+#             */
-/*   Updated: 2017/12/15 18:47:47 by ddenkin          ###   ########.fr       */
+/*   Updated: 2017/12/15 18:49:48 by ddenkin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int		transform(double *num, int precision)
+static int		transform(double *num)
 {
 	int		exp;
 
@@ -87,7 +87,7 @@ char			*ft_detoa(double num, int precision)
 	char	*res2;
 	char	*res;
 
-	isize = transform(&num, precision);
+	isize = transform(&num);
 	res1 = ft_itoa((int)num);
 	exp = num - (int)num;
 	res2 = dexptoa(exp, precision);
