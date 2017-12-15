@@ -6,11 +6,24 @@
 /*   By: ddenkin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/15 21:12:25 by ddenkin           #+#    #+#             */
-/*   Updated: 2017/12/15 21:50:30 by ddenkin          ###   ########.fr       */
+/*   Updated: 2017/12/15 22:06:51 by ddenkin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
+
+void		trimzeros(char *str, int exp)
+{
+	int		end;
+
+	if (exp <= 0)
+		return ;
+	end = ft_strlen(str);
+	if (end > 0)
+		end--;
+	while (exp-- >= 0 && str[end] == '0')
+		str[end--] = 0;
+}
 
 int			g_handler(va_list *va, t_form *form)
 {
@@ -45,6 +58,7 @@ int			g_handler(va_list *va, t_form *form)
 			prec = 0;
 		res = ft_dtoa(d, prec);
 	}
+	trimzeros(res, form->prec - mant);
 	if (form->flg->minus == 1)
 		apply_blanks(&res, form, 1);
 	else if (form->flg->zero == 1)
