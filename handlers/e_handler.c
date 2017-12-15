@@ -6,7 +6,7 @@
 /*   By: ddenkin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/15 16:49:57 by ddenkin           #+#    #+#             */
-/*   Updated: 2017/12/15 18:50:08 by ddenkin          ###   ########.fr       */
+/*   Updated: 2017/12/15 22:27:20 by ddenkin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,10 @@ int			e_handler(va_list *va, t_form *form)
 	int		prec;
 	char	*res;
 
-	d = va_arg(*va, double);
+	if (form->lmod[0] == 'L')
+		d = va_arg(*va, long double);
+	else
+		d = va_arg(*va, double);
 	prec = (form->prec == -1) ? 6 : form->prec;
 	res = ft_detoa(d, prec);
 	if (form->flg->minus == 1)
