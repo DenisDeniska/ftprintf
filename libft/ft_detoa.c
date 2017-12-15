@@ -6,25 +6,25 @@
 /*   By: ddenkin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/15 16:21:00 by ddenkin           #+#    #+#             */
-/*   Updated: 2017/12/15 18:44:18 by ddenkin          ###   ########.fr       */
+/*   Updated: 2017/12/15 18:46:22 by ddenkin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int		transform(double *num)
+static int		transform(double *num, int precision)
 {
 	int		exp;
 
 	exp = 0;
 	if (*num > 1 || *num < -1)
-		while (*num >= 10 || *num <= -10)
+		while ((*num >= 10 || *num <= -10) && exp < precision)
 		{
 			*num /= 10;
 			exp++;
 		}
 	else
-		while (*num <= 1 && *num >= -1)
+		while (*num <= 1 && *num >= -1 && -exp < precision)
 		{
 			*num *= 10;
 			exp--;
@@ -87,7 +87,7 @@ char			*ft_detoa(double num, int precision)
 	char	*res2;
 	char	*res;
 
-	isize = transform(&num);
+	isize = transform(&num, precision);
 	res1 = ft_itoa((int)num);
 	exp = num - (int)num;
 	res2 = dexptoa(exp, precision);
