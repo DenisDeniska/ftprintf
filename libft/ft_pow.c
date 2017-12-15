@@ -6,7 +6,7 @@
 /*   By: ddenkin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/30 14:56:51 by ddenkin           #+#    #+#             */
-/*   Updated: 2017/10/30 19:56:45 by ddenkin          ###   ########.fr       */
+/*   Updated: 2017/12/15 15:58:40 by ddenkin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,17 @@ double	ft_pow(double x, int y)
 
 	res = 1;
 	i = 0;
-	if (y < 0)
-		return (0);
-	while (i < y)
-	{
-		res *= x;
-		i++;
-	}
+	if (y >= 0)
+		while (i < y)
+		{
+			res *= x;
+			i++;
+		}
+	else
+		while (i < ft_abs(y))
+		{
+			res *= 1 / x;
+			i++;
+		}
 	return (res);
 }

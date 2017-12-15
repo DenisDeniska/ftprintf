@@ -11,6 +11,7 @@ CFLAGS = -c $(FLAGS)
 SRC = ft_printf.c\
 	  parser.c\
 	  helper.c\
+	  $(HANDLE)/apply_app.c\
 	  $(HANDLE)/apply_plusspace.c\
 	  $(HANDLE)/apply_blanks.c\
 	  $(HANDLE)/apply_zero.c\
@@ -27,6 +28,12 @@ SRC = ft_printf.c\
 	  $(HANDLE)/wstring_handler.c\
 	  $(HANDLE)/string_handler.c\
 	  $(HANDLE)/pointer_handler.c\
+	  $(HANDLE)/binary_handler.c\
+	  $(HANDLE)/nonprint_handler.c\
+	  $(HANDLE)/e_handler.c\
+	  $(HANDLE)/f_handler.c\
+	  $(HANDLE)/date_handler.c\
+	  $(HANDLE)/time_handler.c\
 	  $(HANDLE)/failconv_handler.c\
 
 
@@ -55,7 +62,14 @@ LIBSRC =$(LIB)/ft_isdigit.c \
 		$(LIB)/ft_cswap.c \
 		$(LIB)/ft_max.c \
 		$(LIB)/ft_min.c \
-		$(LIB)/ft_unictoa.c
+		$(LIB)/ft_unictoa.c \
+		$(LIB)/ft_detoa.c \
+		$(LIB)/ft_dtoa.c \
+		$(LIB)/ft_itoa.c \
+		$(LIB)/ft_round.c \
+		$(LIB)/ft_itoa_base.c \
+		$(LIB)/ft_pow.c \
+		$(LIB)/ft_abs.c \
 
 OBJ = $(SRC:.c=.o)
 

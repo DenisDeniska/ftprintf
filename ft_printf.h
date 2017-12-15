@@ -6,7 +6,7 @@
 /*   By: ddenkin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/04 17:54:28 by ddenkin           #+#    #+#             */
-/*   Updated: 2017/12/12 14:49:55 by ddenkin          ###   ########.fr       */
+/*   Updated: 2017/12/15 17:47:20 by ddenkin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ typedef struct	s_flags
 	int			minus;
 	int			space;
 	int			plus;
+	int			app;
 }				t_flags;
 
 typedef struct	s_form
@@ -46,8 +47,8 @@ typedef struct	s_opp
 
 int				ft_printf(const char *format, ...);
 t_flags			*parse_flags(const char **format);
-int				parse_w(va_list *va, const char **format);
-int				parse_prec(va_list *va, const char **format);
+void			parse_w(va_list *va, const char **format, t_form *form);
+void			parse_prec(va_list *va, const char **format, t_form *form);
 char			*parse_lmod(const char **format);
 char			parse_conv(const char **format, t_opp *g_opptab);
 void			init_flags(t_flags *res);
@@ -58,18 +59,22 @@ int				string_handler(va_list *va, t_form *form);
 int				wstring_handler(va_list *va, t_form *form);
 int				pointer_handler(va_list *va, t_form *form);
 int				int_handler(va_list *va, t_form *form);
-int				longint_handler(va_list *va, t_form *form);
 int				octal_handler(va_list *va, t_form *form);
-int				longoctal_handler(va_list *va, t_form *form);
 int				unsigned_handler(va_list *va, t_form *form);
-int				longunsigned_handler(va_list *va, t_form *form);
 int				hex_handler(va_list *va, t_form *form);
 int				char_handler(va_list *va, t_form *form);
 int				wchar_handler(va_list *va, t_form *form);
 int				perc_handler(va_list *va, t_form *form);
+int				e_handler(va_list *va, t_form *form);
+int				f_handler(va_list *va, t_form *form);
 int				n_handler(va_list *va, t_form *form);
+int				binary_handler(va_list *va, t_form *form);
+int				nonprint_handler(va_list *va, t_form *form);
+int				date_handler(va_list *va, t_form *form);
+int				time_handler(va_list *va, t_form *form);
 int				failconv_handler(const char **format, t_form *form);
 
+void			apply_app(char **res);
 void			apply_plusspace(char **res, t_form *form, char symb);
 void			apply_precision(char **res, t_form *form);
 void			apply_precisions(char **res, t_form *form);

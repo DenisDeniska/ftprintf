@@ -6,7 +6,7 @@
 /*   By: ddenkin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/06 19:08:00 by ddenkin           #+#    #+#             */
-/*   Updated: 2017/12/08 22:20:15 by ddenkin          ###   ########.fr       */
+/*   Updated: 2017/12/12 19:11:48 by ddenkin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ char			*dec_handler(t_form *form, intmax_t *num)
 static char		*u_handler(t_form *form, uintmax_t *num, int base)
 {
 	if (form->conv == 'u' || form->conv == 'o' || form->conv == 'x' \
-			|| form->conv == 'X')
+			|| form->conv == 'X' || form->conv == 'b')
 	{
 		if (form->lmod == NULL)
 			return (ft_ulltoa_base((unsigned int)*num, base));
@@ -72,5 +72,7 @@ char			*unum_handler(t_form *form, uintmax_t *num)
 		return (u_handler(form, num, 16));
 	if (form->conv == 'o' || form->conv == 'O')
 		return (u_handler(form, num, 8));
+	if (form->conv == 'b')
+		return (u_handler(form, num, 2));
 	return (NULL);
 }

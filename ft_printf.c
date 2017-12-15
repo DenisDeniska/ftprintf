@@ -6,14 +6,14 @@
 /*   By: ddenkin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/01 17:08:36 by ddenkin           #+#    #+#             */
-/*   Updated: 2017/12/12 14:50:39 by ddenkin          ###   ########.fr       */
+/*   Updated: 2017/12/12 18:34:08 by ddenkin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include "ft_opp.h"
 
-static void	free_form(t_form **form)
+static void			free_form(t_form **form)
 {
 	if (!(*form))
 		return ;
@@ -25,21 +25,15 @@ static void	free_form(t_form **form)
 	*form = NULL;
 }
 
-const char	*main_handler(const char *format, va_list *argp, int *res)
+static const char	*main_handler(const char *format, va_list *argp, int *res)
 {
 	t_form		*form;
 	int			i;
 
 	form = (t_form *)malloc(sizeof(t_form));
 	form->flg = parse_flags(&(format));
-	form->min_w = parse_w(argp, &(format));
-	if (form->min_w < 0)
-	{
-		form->flg->minus = 1;
-		form->min_w *= -1;
-	}
-	form->prec = parse_prec(argp, &(format));
-	form->prec = (form->prec < 0) ? -1 : form->prec;
+	parse_w(argp, &(format), form);
+	parse_prec(argp, &(format), form);
 	form->lmod = parse_lmod(&(format));
 	form->res = *res;
 	form->conv = parse_conv(&(format), g_opptab);
@@ -54,7 +48,7 @@ const char	*main_handler(const char *format, va_list *argp, int *res)
 	return (format);
 }
 
-int			minift_printf(const char *format, va_list *argp)
+static int			minift_printf(const char *format, va_list *argp)
 {
 	int		res;
 
@@ -73,7 +67,7 @@ int			minift_printf(const char *format, va_list *argp)
 	return (res);
 }
 
-int			ft_printf(const char *format, ...)
+int					ft_printf(const char *format, ...)
 {
 	va_list		argp;
 	int			res;

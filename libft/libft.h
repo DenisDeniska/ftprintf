@@ -6,7 +6,7 @@
 /*   By: ddenkin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/24 15:32:11 by ddenkin           #+#    #+#             */
-/*   Updated: 2017/12/11 21:02:22 by ddenkin          ###   ########.fr       */
+/*   Updated: 2017/12/15 16:40:41 by ddenkin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,7 @@ void				ft_memdel(void **ap);
 char				*ft_strnew(size_t size);
 void				ft_strdel(char **as);
 void				ft_strdel2(char **as1, char **as2);
+void				ft_strdel3(char **as1, char **as2, char **as3);
 void				ft_strclr(char *s);
 void				ft_striter(char *s, void (*f)(char *));
 void				ft_striteri(char *s, void (*f)(unsigned int, char *));
@@ -75,6 +76,9 @@ char				*ft_strjoin(char const *s1, char const *s2);
 char				*ft_strtrim(char const *s);
 char				**ft_strsplit(char const *s, char c);
 void				ft_strrev(char *s);
+char				*ft_dtoa(double num, int precision);
+char				*ft_dtoa_base(double num, int precision, int base);
+char				*ft_detoa(double num, int precision);
 char				*ft_itoa(int n);
 char				*ft_itoa_base(int n, int base);
 char				*ft_utoa(unsigned int n);
@@ -107,4 +111,5 @@ int					ft_abs(int i);
 int					ft_max(int a, int b);
 int					ft_min(int a, int b);
 int					ft_unictoa(char *res, unsigned int c, int maxsize);
+double				ft_roundd(double num, int precision);
 #endif

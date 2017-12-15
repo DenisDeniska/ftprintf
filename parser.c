@@ -6,7 +6,7 @@
 /*   By: ddenkin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/04 18:31:50 by ddenkin           #+#    #+#             */
-/*   Updated: 2017/12/12 14:49:35 by ddenkin          ###   ########.fr       */
+/*   Updated: 2017/12/12 18:38:32 by ddenkin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,8 @@ t_flags		*parse_flags(const char **format)
 			res->minus = 1;
 		else if (**format == '+')
 			res->plus = 1;
+		else if (**format == '\'')
+			res->app = 1;
 		else
 			return (res);
 		(*format)++;
@@ -53,57 +55,56 @@ t_flags		*parse_flags(const char **format)
 	return (res);
 }
 
-int			parse_w(va_list *va, const char **format)
+void		parse_w(va_list *va, const char **format, t_form *form)
 {
-	int	minw;
-
-	minw = 0;
+	form->min_w = 0;
 	if (**format == '*')
 	{
-		minw = va_arg(*va, int);
+		form->min_w = va_arg(*va, int);
 		(*format)++;
 	}
-	if (ft_isdigit(**format))
+	if (ft_isdigit(**format) && (form->min_w = 0) == 0)
 	{
-		minw = 0;
 		while (ft_isdigit(**format))
 		{
-			minw *= 10;
-			minw += **format - 48;
+			form->min_w *= 10;
+			form->min_w += **format - 48;
 			(*format)++;
 		}
 	}
 	if (**format == '*')
 	{
-		minw = va_arg(*va, int);
+		form->min_w = va_arg(*va, int);
 		(*format)++;
 	}
-	return (minw);
+	if (form->min_w < 0)
+	{
+		form->flg->minus = 1;
+		form->min_w *= -1;
+	}
 }
 
-int			parse_prec(va_list *va, const char **format)
+void		parse_prec(va_list *va, const char **format, t_form *form)
 {
-	int		prec;
-
-	prec = -1;
+	form->prec = -1;
 	if (**format == '.')
 	{
-		prec = 0;
+		form->prec = 0;
 		(*format)++;
 		if (ft_isdigit(**format))
 			while (ft_isdigit(**format))
 			{
-				prec *= 10;
-				prec += **format - 48;
+				form->prec *= 10;
+				form->prec += **format - 48;
 				(*format)++;
 			}
 		else if (**format == '*')
 		{
-			prec = va_arg(*va, int);
+			form->prec = va_arg(*va, int);
 			(*format)++;
 		}
+		form->prec = (form->prec < 0) ? -1 : form->prec;
 	}
-	return (prec);
 }
 
 char		*parse_lmod(const char **format)
