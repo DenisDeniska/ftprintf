@@ -6,7 +6,7 @@
 /*   By: ddenkin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/17 16:02:49 by ddenkin           #+#    #+#             */
-/*   Updated: 2017/12/17 16:20:00 by ddenkin          ###   ########.fr       */
+/*   Updated: 2017/12/17 16:23:05 by ddenkin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,8 +83,9 @@ char			*ft_detoa_base(double num, int precision, int base)
 	char	*res;
 
 	isize = transform(&num, base);
-	res2 = ft_strdup("0x");
 	res1 = ft_itoa_base((int)num, base);
+	res2 = (num < 0) ? ft_strdup("-0") : ft_strdup("0x");
+	(num < 0) ? res1[0] = 'x' : 1; 
 	res = ft_strjoin(res2, res1);
 	ft_strdel2(&res1, &res2);
 	res1 = res;
