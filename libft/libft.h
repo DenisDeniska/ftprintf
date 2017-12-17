@@ -6,7 +6,7 @@
 /*   By: ddenkin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/24 15:32:11 by ddenkin           #+#    #+#             */
-/*   Updated: 2017/12/15 21:47:35 by ddenkin          ###   ########.fr       */
+/*   Updated: 2017/12/17 16:04:52 by ddenkin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,7 @@ void				ft_strrev(char *s);
 char				*ft_dtoa(double num, int precision);
 char				*ft_dtoa_base(double num, int precision, int base);
 char				*ft_detoa(double num, int precision);
+char				*ft_detoa_base(double num, int precision, int base);
 char				*ft_itoa(int n);
 char				*ft_itoa_base(int n, int base);
 char				*ft_utoa(unsigned int n);
@@ -112,6 +113,7 @@ int					ft_max(int a, int b);
 int					ft_min(int a, int b);
 int					ft_unictoa(char *res, unsigned int c, int maxsize);
 double				ft_roundd(double num, int precision);
+double				ft_roundd_base(double num, int precision, int base);
 int					ft_countexp(double num);
 int					ft_countmant(double n);
 #endif

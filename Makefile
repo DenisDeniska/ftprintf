@@ -17,6 +17,7 @@ SRC = ft_printf.c\
 	  $(HANDLE)/apply_zero.c\
 	  $(HANDLE)/apply_precision.c\
 	  $(HANDLE)/num_handler.c\
+	  $(HANDLE)/double_handler.c\
 	  $(HANDLE)/n_handler.c\
 	  $(HANDLE)/char_handler.c\
 	  $(HANDLE)/hex_handler.c\
@@ -33,6 +34,7 @@ SRC = ft_printf.c\
 	  $(HANDLE)/e_handler.c\
 	  $(HANDLE)/f_handler.c\
 	  $(HANDLE)/g_handler.c\
+	  $(HANDLE)/a_handler.c\
 	  $(HANDLE)/date_handler.c\
 	  $(HANDLE)/time_handler.c\
 	  $(HANDLE)/failconv_handler.c\
@@ -65,6 +67,7 @@ LIBSRC =$(LIB)/ft_isdigit.c \
 		$(LIB)/ft_min.c \
 		$(LIB)/ft_unictoa.c \
 		$(LIB)/ft_detoa.c \
+		$(LIB)/ft_detoa_base.c \
 		$(LIB)/ft_dtoa.c \
 		$(LIB)/ft_itoa.c \
 		$(LIB)/ft_round.c \

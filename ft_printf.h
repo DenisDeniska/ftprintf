@@ -6,7 +6,7 @@
 /*   By: ddenkin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/04 17:54:28 by ddenkin           #+#    #+#             */
-/*   Updated: 2017/12/15 21:12:21 by ddenkin          ###   ########.fr       */
+/*   Updated: 2017/12/17 15:51:18 by ddenkin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,7 @@ void			init_flags(t_flags *res);
 
 char			*dec_handler(t_form *form, intmax_t *num);
 char			*unum_handler(t_form *form, uintmax_t *num);
+double			double_handler(va_list *va, t_form *form);
 int				string_handler(va_list *va, t_form *form);
 int				wstring_handler(va_list *va, t_form *form);
 int				pointer_handler(va_list *va, t_form *form);
@@ -68,6 +69,7 @@ int				perc_handler(va_list *va, t_form *form);
 int				e_handler(va_list *va, t_form *form);
 int				f_handler(va_list *va, t_form *form);
 int				g_handler(va_list *va, t_form *form);
+int				a_handler(va_list *va, t_form *form);
 int				n_handler(va_list *va, t_form *form);
 int				binary_handler(va_list *va, t_form *form);
 int				nonprint_handler(va_list *va, t_form *form);
