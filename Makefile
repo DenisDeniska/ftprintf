@@ -48,16 +48,18 @@ LIBSRC =$(LIB)/ft_isdigit.c \
 		$(LIB)/ft_tolowers.c \
 		$(LIB)/ft_strdup.c \
 		$(LIB)/ft_strndup.c \
+		$(LIB)/ft_strchr.c \
 		$(LIB)/ft_atoi_base.c \
 		$(LIB)/ft_strlen.c \
 		$(LIB)/ft_putchar.c \
 		$(LIB)/ft_putchar_fd.c \
 		$(LIB)/ft_putstr.c \
 		$(LIB)/ft_strdel.c \
+		$(LIB)/ft_strdel2.c \
+		$(LIB)/ft_strdel3.c \
 		$(LIB)/ft_memset.c \
 		$(LIB)/ft_strcmp.c \
 		$(LIB)/ft_strncpy.c \
-		$(LIB)/ft_strdel2.c \
 		$(LIB)/ft_strjoin.c \
 		$(LIB)/ft_itoa.c \
 		$(LIB)/ft_itoa_base.c \
