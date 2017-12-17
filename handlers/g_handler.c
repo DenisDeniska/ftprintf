@@ -6,7 +6,7 @@
 /*   By: ddenkin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/15 21:12:25 by ddenkin           #+#    #+#             */
-/*   Updated: 2017/12/17 20:32:53 by ddenkin          ###   ########.fr       */
+/*   Updated: 2017/12/17 20:36:47 by ddenkin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ char		*choose_side(int *size, t_form *form, int *mant, double d)
 		if (prec < 0)
 			prec = 0;
 		res = ft_dtoa(d, prec);
-		apply_app(&res);
+		(form->flg->app == 1) ? apply_app(&res) : 1;
 	}
 	return (res);
 }
