@@ -6,11 +6,35 @@
 /*   By: ddenkin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/17 15:51:36 by ddenkin           #+#    #+#             */
-/*   Updated: 2017/12/17 16:09:05 by ddenkin          ###   ########.fr       */
+/*   Updated: 2017/12/17 16:42:34 by ddenkin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
+
+static void trimzeros(char **str)
+{
+	char	*exp;
+	char	*tmp1;
+	int		end;
+
+	end = ft_strlen(*str);
+	if (end > 0)
+		end--;
+	while (end >= 0 && (*str)[end] != 'p')
+		end--;
+	if ((*str)[end - 1] != '0')
+		return ;
+	exp = ft_strdup((*str) + end);
+	end--;
+	while ((*str)[end] == '0')
+		(*str)[end--] = 0;
+	if ((*str)[end] == '.')
+		(*str)[end] = 0;
+	tmp1 = (*str);
+	(*str) = ft_strjoin(*str, exp);
+	ft_strdel2(&tmp1, &exp);
+}
 
 int		a_handler(va_list *va, t_form *form)
 {
@@ -27,6 +51,7 @@ int		a_handler(va_list *va, t_form *form)
 		apply_zero(&res, form);
 	else
 		apply_blanks(&res, form, 0);
+	trimzeros(&res);
 	if (form->conv == 'A')
 		ft_touppers(res);
 	ft_putstr(res);
