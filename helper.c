@@ -6,7 +6,7 @@
 /*   By: ddenkin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/12 14:48:06 by ddenkin           #+#    #+#             */
-/*   Updated: 2017/12/17 19:03:23 by ddenkin          ###   ########.fr       */
+/*   Updated: 2017/12/17 20:57:14 by ddenkin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ void	init_flags(t_flags *res)
 	res->plus = 0;
 	res->minus = 0;
 	res->space = 0;
+	res->app = 0;
 }
 
 int		parse_num(const char **format)

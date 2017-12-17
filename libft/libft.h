@@ -6,7 +6,7 @@
 /*   By: ddenkin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/24 15:32:11 by ddenkin           #+#    #+#             */
-/*   Updated: 2017/12/17 20:22:13 by ddenkin          ###   ########.fr       */
+/*   Updated: 2017/12/17 16:04:52 by ddenkin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,6 @@ void				ft_memdel(void **ap);
 char				*ft_strnew(size_t size);
 void				ft_strdel(char **as);
 void				ft_strdel2(char **as1, char **as2);
-void				ft_strdel3(char **s1, char **s2, char **s3);
 void				ft_strdel3(char **as1, char **as2, char **as3);
 void				ft_strclr(char *s);
 void				ft_striter(char *s, void (*f)(char *));
