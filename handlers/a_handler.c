@@ -6,7 +6,7 @@
 /*   By: ddenkin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/17 15:51:36 by ddenkin           #+#    #+#             */
-/*   Updated: 2017/12/17 16:44:41 by ddenkin          ###   ########.fr       */
+/*   Updated: 2017/12/17 16:45:33 by ddenkin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ int		a_handler(va_list *va, t_form *form)
 	char	*res;
 
 	d = double_handler(va, form);
-	prec = (form->prec == -1) ? 15 : form->prec;
+	prec = (form->prec == -1) ? 19 : form->prec;
 	res = ft_detoa_base(d, prec, 16);
 	if (form->flg->minus == 1)
 		apply_blanks(&res, form, 1);
