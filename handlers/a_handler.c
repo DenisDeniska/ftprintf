@@ -6,13 +6,13 @@
 /*   By: ddenkin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/17 15:51:36 by ddenkin           #+#    #+#             */
-/*   Updated: 2017/12/17 16:45:33 by ddenkin          ###   ########.fr       */
+/*   Updated: 2017/12/17 16:46:49 by ddenkin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
 
-static void trimzeros(char **str)
+static void	trimzeros(char **str)
 {
 	char	*exp;
 	char	*tmp1;
@@ -36,7 +36,7 @@ static void trimzeros(char **str)
 	ft_strdel2(&tmp1, &exp);
 }
 
-int		a_handler(va_list *va, t_form *form)
+int			a_handler(va_list *va, t_form *form)
 {
 	double	d;
 	int		prec;
