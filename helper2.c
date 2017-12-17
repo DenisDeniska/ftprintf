@@ -1,21 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memdel.c                                        :+:      :+:    :+:   */
+/*   helper2.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ddenkin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/10/26 18:25:25 by ddenkin           #+#    #+#             */
-/*   Updated: 2017/11/30 17:16:40 by ddenkin          ###   ########.fr       */
+/*   Created: 2017/12/17 19:01:16 by ddenkin           #+#    #+#             */
+/*   Updated: 2017/12/17 19:03:47 by ddenkin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
-void	ft_memdel(void **ap)
+int		hasdollar(const char *format)
 {
-	if (ap == NULL || *ap == NULL)
-		return ;
-	free(*ap);
-	*ap = NULL;
+	char	*temp;
+
+	temp = (char *)format;
+	while (ft_isdigit(*temp))
+		temp++;
+	if (*temp == '$')
+		return (1);
+	else
+		return (0);
 }

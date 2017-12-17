@@ -6,7 +6,7 @@
 /*   By: ddenkin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/12 19:09:42 by ddenkin           #+#    #+#             */
-/*   Updated: 2017/12/12 19:10:39 by ddenkin          ###   ########.fr       */
+/*   Updated: 2017/12/17 17:58:14 by ddenkin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,8 @@ int			binary_handler(va_list *va, t_form *form)
 		apply_sharp(&res);
 	if (form->flg->minus == 1)
 		apply_blanks(&res, form, 1);
-	apply_blanks(&res, form, 0);
+	else
+		apply_blanks(&res, form, 0);
 	ft_putstr(res);
 	ret = ft_strlen(res);
 	free(res);

@@ -6,7 +6,7 @@
 /*   By: ddenkin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/04 21:19:01 by ddenkin           #+#    #+#             */
-/*   Updated: 2017/12/12 19:05:07 by ddenkin          ###   ########.fr       */
+/*   Updated: 2017/12/12 11:04:17 by ddenkin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,6 @@ int			int_handler(va_list *va, t_form *form)
 		res = ft_strdup("");
 	else
 		res = dec_handler(form, &num);
-	if (form->flg->app == 1)
-		apply_app(&res);
 	apply_precision(&res, form);
 	if (form->flg->minus == 0 && form->flg->zero == 1 && form->prec == -1)
 		apply_zero(&res, form);

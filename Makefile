@@ -11,6 +11,7 @@ CFLAGS = -c $(FLAGS)
 SRC = ft_printf.c\
 	  parser.c\
 	  helper.c\
+	  helper2.c\
 	  $(HANDLE)/apply_app.c\
 	  $(HANDLE)/apply_plusspace.c\
 	  $(HANDLE)/apply_blanks.c\
@@ -58,6 +59,8 @@ LIBSRC =$(LIB)/ft_isdigit.c \
 		$(LIB)/ft_strncpy.c \
 		$(LIB)/ft_strdel2.c \
 		$(LIB)/ft_strjoin.c \
+		$(LIB)/ft_itoa.c \
+		$(LIB)/ft_itoa_base.c \
 		$(LIB)/ft_lltoa.c \
 		$(LIB)/ft_lltoa_base.c \
 		$(LIB)/ft_ulltoa.c \
@@ -69,9 +72,7 @@ LIBSRC =$(LIB)/ft_isdigit.c \
 		$(LIB)/ft_detoa.c \
 		$(LIB)/ft_detoa_base.c \
 		$(LIB)/ft_dtoa.c \
-		$(LIB)/ft_itoa.c \
 		$(LIB)/ft_round.c \
-		$(LIB)/ft_itoa_base.c \
 		$(LIB)/ft_pow.c \
 		$(LIB)/ft_abs.c \
 		$(LIB)/ft_countexp.c \

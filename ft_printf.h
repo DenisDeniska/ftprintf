@@ -6,7 +6,7 @@
 /*   By: ddenkin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/04 17:54:28 by ddenkin           #+#    #+#             */
-/*   Updated: 2017/12/17 15:51:18 by ddenkin          ###   ########.fr       */
+/*   Updated: 2017/12/17 19:05:36 by ddenkin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,12 +46,18 @@ typedef struct	s_opp
 }				t_opp;
 
 int				ft_printf(const char *format, ...);
+int				parse_num(const char **format);
 t_flags			*parse_flags(const char **format);
-void			parse_w(va_list *va, const char **format, t_form *form);
-void			parse_prec(va_list *va, const char **format, t_form *form);
+void			parse_w(va_list *va, const char **format, t_form *form,\
+		va_list orig);
+void			parse_prec(va_list *va, const char **format, t_form *form,\
+		va_list orig);
 char			*parse_lmod(const char **format);
 char			parse_conv(const char **format, t_opp *g_opptab);
 void			init_flags(t_flags *res);
+void			va_to_num(int num, va_list *temp);
+int				get_arg(const char **format, va_list *va, va_list orig);
+int				hasdollar(const char *format);
 
 char			*dec_handler(t_form *form, intmax_t *num);
 char			*unum_handler(t_form *form, uintmax_t *num);

@@ -6,7 +6,7 @@
 /*   By: ddenkin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/07 16:06:36 by ddenkin           #+#    #+#             */
-/*   Updated: 2017/12/12 19:07:05 by ddenkin          ###   ########.fr       */
+/*   Updated: 2017/12/11 18:09:39 by ddenkin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,6 @@ int			unsigned_handler(va_list *va, t_form *form)
 
 	num = va_arg(*va, uintmax_t);
 	res = unum_handler(form, &num);
-	if (form->flg->app == 1)
-		apply_app(&res);
 	apply_precision(&res, form);
 	if (form->flg->minus == 1)
 		apply_blanks(&res, form, 1);

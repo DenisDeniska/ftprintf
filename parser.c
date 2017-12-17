@@ -6,7 +6,7 @@
 /*   By: ddenkin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/04 18:31:50 by ddenkin           #+#    #+#             */
-/*   Updated: 2017/12/15 22:26:03 by ddenkin          ###   ########.fr       */
+/*   Updated: 2017/12/17 18:55:32 by ddenkin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,8 @@ t_flags		*parse_flags(const char **format)
 	return (res);
 }
 
-void		parse_w(va_list *va, const char **format, t_form *form)
+void		parse_w(va_list *va, const char **format, t_form *form,\
+		va_list orig)
 {
 	form->min_w = 0;
 	if (**format == '*')
@@ -73,10 +74,7 @@ void		parse_w(va_list *va, const char **format, t_form *form)
 		}
 	}
 	if (**format == '*')
-	{
-		form->min_w = va_arg(*va, int);
-		(*format)++;
-	}
+		form->min_w = get_arg(format, va, orig);
 	if (form->min_w < 0)
 	{
 		form->flg->minus = 1;
@@ -84,7 +82,8 @@ void		parse_w(va_list *va, const char **format, t_form *form)
 	}
 }
 
-void		parse_prec(va_list *va, const char **format, t_form *form)
+void		parse_prec(va_list *va, const char **format,\
+		t_form *form, va_list orig)
 {
 	form->prec = -1;
 	if (**format == '.')
@@ -99,10 +98,7 @@ void		parse_prec(va_list *va, const char **format, t_form *form)
 				(*format)++;
 			}
 		else if (**format == '*')
-		{
-			form->prec = va_arg(*va, int);
-			(*format)++;
-		}
+			form->prec = get_arg(format, va, orig);
 		form->prec = (form->prec < 0) ? -1 : form->prec;
 	}
 }
