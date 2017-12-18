@@ -6,7 +6,7 @@
 /*   By: ddenkin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/04 21:34:07 by ddenkin           #+#    #+#             */
-/*   Updated: 2017/12/17 15:50:50 by ddenkin          ###   ########.fr       */
+/*   Updated: 2017/12/18 16:05:57 by ddenkin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ t_opp g_opptab[] =
 	{"r", &nonprint_handler},
 	{"k", &date_handler},
 	{"t", &time_handler},
+	{"m", &mass_handler},
 	{NULL, NULL}
 };
 #endif

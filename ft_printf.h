@@ -6,7 +6,7 @@
 /*   By: ddenkin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/04 17:54:28 by ddenkin           #+#    #+#             */
-/*   Updated: 2017/12/17 19:05:36 by ddenkin          ###   ########.fr       */
+/*   Updated: 2017/12/18 16:06:12 by ddenkin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,7 @@ int				binary_handler(va_list *va, t_form *form);
 int				nonprint_handler(va_list *va, t_form *form);
 int				date_handler(va_list *va, t_form *form);
 int				time_handler(va_list *va, t_form *form);
+int				mass_handler(va_list *va, t_form *form);
 int				failconv_handler(const char **format, t_form *form);
 
 void			apply_app(char **res);

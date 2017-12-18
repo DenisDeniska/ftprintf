@@ -38,6 +38,7 @@ SRC = ft_printf.c\
 	  $(HANDLE)/a_handler.c\
 	  $(HANDLE)/date_handler.c\
 	  $(HANDLE)/time_handler.c\
+	  $(HANDLE)/mass_handler.c\
 	  $(HANDLE)/failconv_handler.c\
 
 
